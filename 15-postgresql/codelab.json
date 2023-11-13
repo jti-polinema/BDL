@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2023-11-13T03:33:44Z",
+  "id": "15-postgresql",
+  "duration": 138,
+  "title": "#15 | PostgreSQL",
+  "authors": "Habibie Ed Dien",
+  "summary": "Mampu melakukan operasi query di PostgreSQL",
+  "source": "1df3pUCu4QI95EFWoGtCVpXBO9GRuCrG58BBlS0rKcAA",
+  "theme": "basisdatalanjut",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "basisdatalanjut"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "https://github.com/jti-polinema/BDL/issues",
+  "ga": "G-H7507PFEJB",
+  "url": "15-postgresql"
+}
