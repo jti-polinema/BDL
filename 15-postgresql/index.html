@@ -28,7 +28,7 @@
                   feedback-link="https://github.com/jti-polinema/BDL/issues">
     
       <google-codelab-step label="PostgreSQL" duration="0">
-        <p><strong>Terakhir diperbarui:</strong> 13 November 2023</p>
+        <p><strong>Terakhir diperbarui:</strong> 04 Desember 2023</p>
 <p><strong>Penulis:</strong> Tim Ajar Basis Data Lanjut</p>
 <p>Pada codelab ini, Anda akan mempelajari tentang instalasi PostgreSQL, impor database, dan beberapa query dasar di postgres.</p>
 <p>Video berikut menjelaskan tentang apa itu PostgreSQL. Silakan simak dan pahami!</p>
@@ -53,16 +53,16 @@
 <ul>
 <li>Pengetahuan Dasar di Basis Data atau RDBMS</li>
 <li>Konsep ERD</li>
-<li>Query DDL dan DML</li>
+<li>Query DDL dan DML SQL</li>
 </ul>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Praktikum 1: Instalasi PostgreSQL" duration="20">
+      <google-codelab-step label="Praktikum 1: Instalasi PostgreSQL" duration="25">
         <p>Pada praktikum ini Anda akan melakukan instalasi PostgreSQL di Laptop/Komputer Anda.</p>
 <p>Selesaikan langkah-langkah praktikum berikut ini. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
-<aside class="warning"><p><strong>Perhatian:</strong> Laporan Praktikum dibuat dengan Office Word. Beri identitas NIM dan Nama pada setiap footer/header halaman.</p>
+<aside class="warning"><p><strong>Perhatian:</strong> Laporan Praktikum dibuat dengan Office Word. Beri identitas NIM dan Nama pada setiap footer/header halaman. Jawablah setiap soal yang ada pada beberapa langkah praktikum dengan mencantumkan <strong>Jawaban Soal X. </strong>Gantilah <strong>X</strong> sesuai nomor soal.</p>
 </aside>
 <h2 is-upgraded><strong>Langkah 1: Unduh PostgreSQL</strong></h2>
 <p>Unduh PostgreSQL melalui tautan ini: <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads" target="_blank">https://www.enterprisedb.com/downloads/postgres-postgresql-downloads</a> </p>
@@ -94,377 +94,177 @@
 <p>Kita perlu set password database superuser (default username: <strong>postgres</strong>). Simpanlah password Anda dengan baik, nanti akan digunakan kembali.</p>
 <p class="image-container"><img style="width: 552.00px" src="img\\d77bcf69f8622819.png"></p>
 <h2 is-upgraded>Langkah 5: Set Port Number</h2>
-<p>Secara default port yang digunakan PostgreSQL adal 5432. Anda harus memastikan bahwa port tersebut tidak sedang digunakan oleh aplikasi/program lain di Laptop/Komputer Anda.</p>
+<p>Secara default port yang digunakan PostgreSQL adalah <strong>5432</strong>. Anda harus memastikan bahwa port tersebut tidak sedang digunakan oleh aplikasi/program lain di Laptop/Komputer Anda.</p>
 <p class="image-container"><img style="width: 552.00px" src="img\\a54473ec3562505a.png"></p>
-<p>Klik Next hingga proses instalasi selesai sampai Finish.</p>
+<p>Klik <strong>Next </strong>hingga proses instalasi selesai sampai Finish.</p>
 <h2 is-upgraded><strong>Langkah 6: Verifikasi Hasil Instalasi</strong></h2>
+<p>Ada beberapa cara untuk melakukan verifikasi hasil instalasi PostgreSQL. Anda dapat mencoba mengoneksikan server database PostgreSQL dari aplikasi client seperti <em>psql </em>dan <em>pgAdmin</em>.</p>
+<p>Cara tercepat untuk verifikasi instalasi adalah menggunakan program <code>psql</code>.</p>
+<p>Klik program <code>psql</code> seperti gambar berikut, maka program <strong>command-line (CMD)</strong> akan tampil.</p>
 <p class="image-container"><img style="width: 246.00px" src="img\\12110c72a1e0cae8.png"></p>
+<p>Kemudian, ketik informasi yang dibutuhkan seperti server, database, port, username, dan password seperti pada gambar berikut. Untuk tetap menggunakan nilai default yang berada dalam kurung siku, Anda dapat langsung menekan Enter. Kemudian bagian password, Anda ketik sesuai dengan inputan ketika proses instalasi sebelumnya. Jika berhasil tersambung, maka akan tampil seperti <code>postgres=#</code></p>
+<p class="image-container"><img style="width: 623.00px" src="img\\736ef8837d317432.png"></p>
+<p>Lalu ketik perintah atau query SELECT version(); maka Anda akan melihat hasilnya berupa versi dari PostgreSQL yang telah berhasil Anda install.</p>
+<aside class="warning"><h3 is-upgraded><strong>Soal 2</strong></h3>
+<p>Screenshot hasil verifikasi instalasi dan versi PostgreSQL Anda dan masukkan ke dalam Laporan Praktikum sebagai jawaban nomor soal ini.</p>
+</aside>
+<p>Selamat, Anda telah berhasil melakukan instalasi database server PostgreSQL di Laptop/Komputer Anda. Praktikum berikutnya, kita akan mempelajari cara </p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Praktikum 2:" duration="15">
-        <p>Setelah Anda menyelesaikan praktikum 1, Anda dapat melanjutkan praktikum 2 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
+      <google-codelab-step label="Praktikum 2: Menghubungkan PostgreSQL dengan pgAdmin" duration="15">
+        <p>Setelah Anda menyelesaikan praktikum 1, Anda dapat melanjutkan praktikum 2 ini. Selesaikan langkah-langkah praktikum berikut ini. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
 <aside class="warning"><p><strong>Perhatian:</strong> Diasumsikan Anda telah berhasil menyelesaikan Praktikum 1.</p>
 </aside>
-<p>Pada codelab ini, kita akan menambah kode dari aplikasi <strong>books </strong>di praktikum sebelumnya.</p>
-<h2 is-upgraded>Langkah 1: Buka file <strong><code>main.dart</code></strong></h2>
-<p>Tambahkan tiga method berisi kode seperti berikut di dalam <code>class _FuturePageState</code>.</p>
-<pre><code>Future&lt;int&gt; returnOneAsync() async {
-  await Future.delayed(const Duration(seconds: 3));
-  return 1;
-}
-
-Future&lt;int&gt; returnTwoAsync() async {
-  await Future.delayed(const Duration(seconds: 3));
-  return 2;
-}
-
-Future&lt;int&gt; returnThreeAsync() async {
-  await Future.delayed(const Duration(seconds: 3));
-  return 3;
-}</code></pre>
-<h2 is-upgraded>Langkah 2: Tambah method <strong><code>count()</code></strong></h2>
-<p>Lalu tambahkan lagi method ini di bawah ketiga method sebelumnya.</p>
-<p class="image-container"><img style="width: 378.00px" src="img\\5b83c8553b235a3a.png"></p>
-<h2 is-upgraded>Langkah 3: Panggil <strong><code>count()</code></strong></h2>
-<p>Lakukan <em>comment </em>kode sebelumnya, ubah isi kode <code>onPressed()</code> menjadi seperti berikut.</p>
-<p class="image-container"><img style="width: 258.00px" src="img\\e447e023789e40.png"></p>
-<h2 is-upgraded><strong>Langkah 4: Run</strong></h2>
-<p>Akhirnya, <strong>run </strong>atau tekan <strong>F5 </strong>jika aplikasi belum running. Maka Anda akan melihat seperti gambar berikut, hasil angka 6 akan tampil setelah delay 9 detik.</p>
-<p class="image-container"><img style="width: 374.00px" src="img\\c031719fe1ee4340.png"></p>
-<aside class="warning"><h3 is-upgraded><strong>Soal 4</strong></h3>
-<ul>
-<li>Jelaskan maksud kode langkah 1 dan 2 tersebut!</li>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 4</strong>&#34;.</li>
-</ul>
+<h2 is-upgraded>Langkah 1: Jalankan pgAdmin</h2>
+<p>pgAdmin merupakan aplikasi GUI berbasis web yang dapat berinteraksi dengan server database PostgreSQL. Run aplikasi pgAdmin seperti gambar berikut.</p>
+<p class="image-container"><img style="width: 252.00px" src="img\\c518db726d3f4bd8.png"></p>
+<p>Kemudian akan tampil di browser aplikasi pgAdmin seperti berikut.</p>
+<p class="image-container"><img style="width: 478.00px" src="img\\5233178fe4e6ce1f.png"></p>
+<h2 is-upgraded>Langkah 2: Membuat koneksi server</h2>
+<p>Klik kanan pada bagian Servers dan pilih menu <code>Create > Server...</code> untuk membuat sebuah server</p>
+<p class="image-container"><img style="width: 515.00px" src="img\\bb77f211cd72d07c.png"></p>
+<h2 is-upgraded>Langkah 3: Mengisi spesifikasi koneksi server</h2>
+<p>Perhatikan gambar berikut. Pada nomor 1, ketiklah nama koneksi dengan nama Anda, contoh <strong>PostgreSQL_Fulan</strong></p>
+<p>Lalu klik tab <code>Connection</code> pada nomor 2.</p>
+<p class="image-container"><img style="width: 501.00px" src="img\\da95162347d87193.png"></p>
+<h2 is-upgraded><strong>Langkah 4: Tab Connection</strong></h2>
+<p>Isilah nilai sesuai di gambar ini, sesuaikan password Anda saat instalasi. Lalu klik <strong>Save</strong>.</p>
+<p class="image-container"><img style="width: 501.00px" src="img\\7048c426513dcbd5.png"></p>
+<h2 is-upgraded><strong>Langkah 5: Database berhasil terkoneksi</strong></h2>
+<p>Klik pada node Servers untuk melihat isinya lebih rinci. Secara default, PostgreSQL memiliki database dengan nama postgres seperti terlihat pada gambar berikut.</p>
+<p class="image-container"><img style="width: 372.00px" src="img\\e052b76e9ed3b3a7.png"></p>
+<aside class="warning"><h3 is-upgraded><strong>Soal 3</strong></h3>
+<p>Screenshot hasil koneksi PostgreSQL Anda dan masukkan ke dalam Laporan Praktikum sebagai jawaban nomor soal ini.</p>
 </aside>
+<h2 is-upgraded><strong>Langkah 6: Buka Query Tool</strong></h2>
+<p>Buka <code>Query Tool</code> dengan klik menu <code>Tools > Query Tool</code> atau bisa juga dengan klik icon petir seperti pada gambar berikut ini.</p>
+<p class="image-container"><img style="width: 514.00px" src="img\\27054bbc77942024.png"></p>
+<h2 is-upgraded><strong>Langkah 7: Query Editor</strong></h2>
+<p>Masuk ke bagian <code>Query Editor</code>, ketik query seperti pada gambar berikut (nomor 2). Lalu eksekusi dengan klik icon petir (nomor 3). Maka hasilnya dapat dilihat pada <code>Data Output</code> (nomor 4).</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\d36bef8632565c24.png"></p>
+<aside class="warning"><h3 is-upgraded><strong>Soal 4</strong></h3>
+<p>Screenshot hasil eksekusi versi PostgreSQL Anda dan masukkan ke dalam Laporan Praktikum sebagai jawaban nomor soal ini.</p>
+</aside>
+<p>Selamat, Anda telah praktik mengoneksikan server database PostgreSQL dengan pgAdmin. Jika Anda ingin melakukan koneksi dengan PHP, Python atau Java, Anda dapat mengaksesnya di akhir codelab ini.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Praktikum 3: Menggunakan Completer di Future" duration="15">
-        <p>Menggunakan Future dengan <code>then</code>, <code>catchError</code>, <code>async</code>, dan <code>await</code> mungkin sudah cukup untuk banyak kasus, tetapi ada alternatif melakukan operasi async di Dart dan Flutter yaitu dengan <code>class Completer</code>.</p>
-<p><strong>Completer </strong>membuat object Future yang mana Anda dapat menyelesaikannya nanti (late) dengan return sebuah value atau error.</p>
-<p>Setelah Anda menyelesaikan praktikum 2, Anda dapat melanjutkan praktikum 3 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
+      <google-codelab-step label="Praktikum 3: Impor Database ke PostgreSQL" duration="15">
+        <p>Setelah Anda menyelesaikan praktikum 2, Anda dapat melanjutkan praktikum 3 ini. Selesaikan langkah-langkah praktikum berikut ini. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
 <aside class="warning"><p><strong>Perhatian:</strong> Diasumsikan Anda telah berhasil menyelesaikan Praktikum 2.</p>
 </aside>
-<h2 is-upgraded>Langkah 1: Buka <strong><code>main.dart</code></strong></h2>
-<p>Pastikan telah impor package async berikut.</p>
-<pre><code>import &#39;package:async/async.dart&#39;;</code></pre>
-<h2 is-upgraded>Langkah 2: Tambahkan variabel dan method</h2>
-<p>Tambahkan variabel late dan method di <code>class _FuturePageState</code> seperti ini.</p>
-<pre><code>late Completer completer;
-
-Future getNumber() {
-  completer = Completer&lt;int&gt;();
-  calculate();
-  return completer.future;
-}
-
-Future calculate() async {
-  await Future.delayed(const Duration(seconds : 5));
-  completer.complete(42);
-}</code></pre>
-<h2 is-upgraded>Langkah 3: Ganti isi kode <strong><code>onPressed()</code></strong></h2>
-<p>Tambahkan kode berikut pada fungsi <code>onPressed()</code>. Kode sebelumnya bisa Anda <em>comment</em>.</p>
-<p class="image-container"><img style="width: 398.00px" src="img\\bdb48de3fa852295.png"></p>
-<h2 is-upgraded><strong>Langkah 4: </strong></h2>
-<p>Terakhir, <strong>run </strong>atau tekan <strong>F5 </strong>untuk melihat hasilnya jika memang belum running. Bisa juga lakukan<strong> hot restart</strong> jika aplikasi sudah running. Maka hasilnya akan seperti gambar berikut ini. Setelah 5 detik, maka angka 42 akan tampil.</p>
-<p class="image-container"><img style="width: 252.00px" src="img\\4a03c022427c484e.png"></p>
+<p>Sebelum memulai praktikum, silakan dipahami dahulu dan unduh contoh database untuk praktikum ini. Kita akan menggunakan database rental DVD untuk praktik fitur-fitur PostgreSQL. Database ini terdiri dari:</p>
+<ul>
+<li>15 tabel</li>
+<li>1 trigger</li>
+<li>7 view</li>
+<li>8 function</li>
+<li>1 domain</li>
+<li>13 sequence</li>
+</ul>
+<p>Anda dapat memahami model diagram ER DVD rental sebagai berikut.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\d57a8dede594a5f0.png"></p>
+<p>Terdapat 15 tabel di basis data DVD rental ini, Anda dapat mengunduh file database tersebut di sini:</p>
+<p><a href="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip" target="_blank"><paper-button class="colored" raised>Unduh Basis Data DVD Rental</paper-button></a></p>
+<aside class="warning"><p><strong>Perhatian:</strong> Hasil unduhan database tersebut berformat zip (<code>dvdrental.zip</code>), silakan ekstrak sehingga menjadi <code>dvdrental.tar</code></p>
+</aside>
+<p>Pada praktikum ini, Anda akan melakukan impor database dengan dua cara, yaitu melalui <code>psql tool</code> dan <code>pgAdmin</code>. Keduanya Anda akan lakukan, sehingga akan ada dua database yang sama, namun diberi nama yang berbeda agar Anda dapat memahami kedua metode ini.</p>
+<h2 is-upgraded>Langkah 1: Run psql tool</h2>
+<p>Jalankan <strong>psql </strong>seperti praktikum sebelumnya</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\94fe076c4450e434.png"></p>
+<h2 is-upgraded>Langkah 2: Koneksikan ke database server</h2>
+<p>Masukkan informasi akun untuk masuk ke server database PostgreSQL. Anda dapat menggunakan nilai default yang disediakan oleh <code>psql</code> dengan menekan keyboard Enter. Namun, untuk kata sandinya, Anda harus memasukkan kata sandi yang Anda berikan saat instalasi PostgreSQL.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\49124eb21dc1d255.png"></p>
+<h2 is-upgraded>Langkah 3: Buat Database</h2>
+<p>Ketik query <strong><code>CREATE DATABASE</code></strong> seperti berikut untuk membuat database <code>dvdrental</code>. </p>
+<p class="image-container"><img style="width: 624.00px" src="img\\8a41630c53bbd424.png"></p>
+<p>PostgreSQL akan membuat database baru bernama <strong><code>dvdrental</code></strong>.</p>
 <aside class="warning"><h3 is-upgraded><strong>Soal 5</strong></h3>
 <ul>
-<li>Jelaskan maksud kode langkah 2 tersebut!</li>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 5</strong>&#34;.</li>
+<li>Gantilah nama database menjadi <code>dvdrental_psql_nama_anda</code>. Contoh: <code>dvdrental_psql_fulan</code></li>
+<li>Screenshot hasil eksekusinya dan masukkan ke dalam Laporan Praktikum sebagai jawaban nomor soal ini.</li>
 </ul>
 </aside>
-<h2 is-upgraded>Langkah 5: Ganti method <strong><code>calculate()</code></strong></h2>
-<p>Gantilah isi code method <code>calculate()</code> seperti kode berikut, atau Anda dapat membuat <code>calculate2()</code></p>
-<p class="image-container"><img style="width: 544.00px" src="img\\6631dbe432b45450.png"></p>
-<h2 is-upgraded>Langkah 6: Pindah ke <strong><code>onPressed()</code></strong></h2>
-<p>Ganti menjadi kode seperti berikut.</p>
-<pre><code>getNumber().then((value) {
-  setState(() {
-    result = value.toString();
-  });
-}).catchError((e) {
-  result = &#39;An error occurred&#39;;
-});</code></pre>
+<h2 is-upgraded><strong>Langkah 4: Impor DB</strong></h2>
+<p>Ketik perintah <strong>exit</strong> untuk keluar dari <code>psql</code></p>
+<p class="image-container"><img style="width: 624.00px" src="img\\650be42f645452fe.png"></p>
+<p>Kemudian, navigasikan ke folder <strong>bin</strong> dari folder instalasi PostgreSQL seperti berikut</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\453b454c50c3bc41.png"></p>
+<p>Setelah itu, gunakan tool <strong><code>pg_restore</code></strong> untuk memuat data ke database <strong><code>dvdrental</code></strong>:</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\e2fb5306f9032b80.png"></p>
+<p>Dalam perintah ini:</p>
+<ul>
+<li><strong><code>-U postgres</code></strong> menentukan pengguna <strong><code>postgres</code></strong> untuk login ke server database PostgreSQL.</li>
+<li><strong><code>-d dvdrental</code></strong> menentukan database target yang akan dimuat. Sesuaikan dengan nama DB sesuai soal 5.</li>
+</ul>
+<p>Lalu ketik kata sandi untuk pengguna <strong>postgres</strong> dan tekan enter</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\8db923162e22c0f7.png"></p>
+<p>Dibutuhkan sekitar beberapa detik untuk memuat data yang disimpan dalam file <strong>dvdrental.tar</strong> ke dalam database <strong>dvdrental</strong>.</p>
+<p>Langkah berikut ini merupakan <strong>metode kedua</strong> dengan menggunakan pgAdmin untuk mengimpor database.</p>
+<h2 is-upgraded><strong>Langkah 6: Impor DB dengan pgAdmin</strong></h2>
+<p>Jalankan <strong>pgAdmin</strong> dan sambungkan ke server PostgreSQL.</p>
+<h2 is-upgraded><strong>Langkah 7: Buat Database</strong></h2>
+<p>Klik kanan <strong>Databases</strong> dan pilih opsi menu<strong> Create &gt; Database...</strong></p>
+<p class="image-container"><img style="width: 504.00px" src="img\\9abbf485ca887af1.png"></p>
+<h2 is-upgraded><strong>Langkah 8: Beri nama database</strong></h2>
+<p>Gantilah nama database berikut sesuai dengan perintah soal 6 di bawah ini.</p>
+<p class="image-container"><img style="width: 493.00px" src="img\\bca1a79330687bf0.png"></p>
 <aside class="warning"><h3 is-upgraded><strong>Soal 6</strong></h3>
 <ul>
-<li>Jelaskan maksud perbedaan kode langkah 2 dengan langkah 5-6 tersebut!</li>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 6</strong>&#34;.</li>
+<li>Gantilah nama database menjadi <code>dvdrental_pgadmin_nama_anda</code>. Contoh: <code>dvdrental_pgadmin_fulan</code></li>
+<li>Screenshot hasilnya dan masukkan ke dalam Laporan Praktikum sebagai jawaban nomor soal ini.</li>
 </ul>
 </aside>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Praktikum 4: Memanggil Future secara paralel" duration="15">
-        <p>Ketika Anda membutuhkan untuk menjalankan banyak Future secara bersamaan, ada sebuah class yang dapat Anda gunakan yaitu: <code>FutureGroup</code>. </p>
-<p><code>FutureGroup</code> tersedia di package <code>async</code>, yang mana itu harus diimpor ke file dart Anda, seperti berikut.</p>
-<pre><code>import &#39;package:async/async.dart&#39;;</code></pre>
-<aside class="special"><p><strong>Catatan:</strong> Package <code>dart:async</code> dan <code>async/async.dart</code> merupakan library yang berbeda. Pada beberapa kasus, Anda membutuhkan kedua lib tersebut untuk me-<em>run code async</em>.</p>
-</aside>
-<p><strong>FutureGroup </strong>adalah sekumpulan dari Future yang dapat run secara paralel. Ketika run secara paralel, maka konsumsi waktu menjadi lebih hemat (cepat) dibanding run method async secara single setelah itu method async lainnya.</p>
-<p>Ketika semua code async paralel selesai dieksekusi, maka FutureGroup akan return value sebagai sebuah <code>List</code>, sama juga ketika ingin menambahkan operasi paralel dalam bentuk <code>List</code>.</p>
-<p>Setelah Anda menyelesaikan praktikum 3, Anda dapat melanjutkan praktikum 4 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
-<aside class="warning"><p><strong>Perhatian:</strong> Diasumsikan Anda telah berhasil menyelesaikan Praktikum 3.</p>
-</aside>
-<h2 is-upgraded>Langkah 1: Buka file <strong><code>main.dart</code></strong></h2>
-<p>Tambahkan method ini ke dalam <code>class _FuturePageState</code> </p>
-<p class="image-container"><img style="width: 479.00px" src="img\\4430acb8ffa21cf1.png"></p>
-<h2 is-upgraded>Langkah 2: Edit <strong><code>onPressed()</code></strong></h2>
-<p>Anda bisa hapus atau comment kode sebelumnya, kemudian panggil method dari langkah 1 tersebut.</p>
-<p class="image-container"><img style="width: 159.00px" src="img\\a8eae50272d363cf.png"></p>
-<h2 is-upgraded><strong>Langkah 3: Run</strong></h2>
-<p>Anda akan melihat hasilnya dalam 3 detik berupa angka 6 lebih cepat dibandingkan praktikum sebelumnya menunggu sampai 9 detik.</p>
+<p>Seharusnya akan terlihat database kosong seperti gambar berikut. Jika di langkah sebelumnya berhasil impor dari <code>psql</code>, Anda akan melihat DB tersebut di pgAdmin juga.</p>
+<p class="image-container"><img style="width: 295.00px" src="img\\91eeaf93f456ab55.png"></p>
+<h2 is-upgraded><strong>Langkah 9: Restore DB</strong></h2>
+<p>Klik kanan pada DB yang telah dibuat pada langkah 8, lalu pilih <strong>Restore...</strong></p>
+<p class="image-container"><img style="width: 497.00px" src="img\\d466837ca341ded5.png"></p>
+<h2 is-upgraded><strong>Langkah 10: Pilih file DB</strong></h2>
+<p>Kemudian akan tampil seperti gambar berikut. Pilih file DB format tar yang sudah diekstrak sebelumnya. Lalu klik <strong>Restore</strong>. </p>
+<p class="image-container"><img style="width: 591.00px" src="img\\8b8afe70960866e7.png"></p>
+<p>Anda akan melihat proses impor DB seperti gambar berikut. Tunggulah hingga proses selesai dan sukses.</p>
+<p class="image-container"><img style="width: 495.00px" src="img\\8d9f8135b09d935.png"></p>
+<h2 is-upgraded><strong>Langkah 11: Cek Tabel</strong></h2>
+<p>Setelah berhasil impor, silakan cek data di <code>Schemas</code> &gt; <code>public</code> &gt; <code>Tables</code></p>
+<p class="image-container"><img style="width: 357.00px" src="img\\c48143e6650cb9fa.png"></p>
 <aside class="warning"><h3 is-upgraded><strong>Soal 7</strong></h3>
 <ul>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 7</strong>&#34;.</li>
-</ul>
-</aside>
-<h2 is-upgraded>Langkah 4: Ganti variabel <strong><code>futureGroup</code></strong></h2>
-<p>Anda dapat menggunakan FutureGroup dengan <code>Future.wait</code> seperti kode berikut.</p>
-<pre><code>final futures = Future.wait&lt;int&gt;([
-  returnOneAsync(),
-  returnTwoAsync(),
-  returnThreeAsync(),
-]);</code></pre>
-<aside class="warning"><h3 is-upgraded><strong>Soal 8</strong></h3>
-<ul>
-<li>Jelaskan maksud perbedaan kode langkah 1 dan 4!</li>
+<li>Bandingkan isi DB hasil impor dengan metode pertama menggunakan <code>psql tool</code> dan metode kedua menggunakan <code>pgAdmin</code>. Jelaskan apakah ada perbedaan isi datanya?</li>
+<li>Screenshot hasil isi kedua DB tersebut dan masukkan ke dalam Laporan Praktikum sebagai jawaban nomor soal ini.</li>
 </ul>
 </aside>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Praktikum 5: Menangani Respon Error pada Async Code" duration="13">
-        <p>Ada beberapa teknik untuk melakukan <em>handle error </em>pada code async. Pada praktikum ini Anda akan menggunakan 2 cara, yaitu <code>then()</code> callback dan pola <code>async/await</code>.</p>
-<p>Setelah Anda menyelesaikan praktikum 4, Anda dapat melanjutkan praktikum 5 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
-<aside class="warning"><p><strong>Perhatian:</strong> Diasumsikan Anda telah berhasil menyelesaikan Praktikum 4.</p>
-</aside>
-<h2 is-upgraded>Langkah 1: Buka file <strong><code>main.dart</code></strong></h2>
-<p>Tambahkan method ini ke dalam <code>class _FuturePageState</code></p>
-<p class="image-container"><img style="width: 461.00px" src="img\\2cba66fc6381820e.png"></p>
-<h2 is-upgraded><strong>Langkah 2: ElevatedButton</strong></h2>
-<p>Ganti dengan kode berikut</p>
-<p class="image-container"><img style="width: 474.00px" src="img\\9659bd29ea2724aa.png"></p>
-<h2 is-upgraded><strong>Langkah 3: Run</strong></h2>
-<p>Lakukan run dan klik tombol <strong>GO! </strong>maka akan menghasilkan seperti gambar berikut.</p>
-<p class="image-container"><img style="width: 395.00px" src="img\\8a644f3bb34dc4fb.png"></p>
-<p>Pada bagian debug console akan melihat teks <code>Complete</code> seperti berikut.</p>
-<p class="image-container"><img style="width: 309.00px" src="img\\b45bbfe7f2b1f61b.png"></p>
-<aside class="warning"><h3 is-upgraded><strong>Soal 9</strong></h3>
-<ul>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 9</strong>&#34;.</li>
-</ul>
-</aside>
-<h2 is-upgraded>Langkah 4: Tambah method <strong><code>handleError()</code></strong></h2>
-<p>Tambahkan kode ini di dalam <code>class _FutureStatePage</code></p>
-<p class="image-container"><img style="width: 322.00px" src="img\\5b01a21f4e2717d3.png"></p>
-<aside class="warning"><h3 is-upgraded><strong>Soal 10</strong></h3>
-<ul>
-<li>Panggil method <code>handleError()</code> tersebut di <code>ElevatedButton</code>, lalu run. Apa hasilnya? Jelaskan perbedaan kode langkah 1 dan 4!</li>
-</ul>
-</aside>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Praktikum 6: Menggunakan Future dengan StatefulWidget" duration="15">
-        <p>Seperti yang Anda telah pelajari, <code>Stateless</code> widget tidak dapat menyimpan informasi (state), <code>StatefulWidget</code> dapat mengelola variabel dan properti dengan method <code>setState()</code>, yang kemudian dapat ditampilkan pada UI. <code>State</code> adalah informasi yang dapat berubah selama life cycle widget itu berlangsung.</p>
-<p>Ada <strong>4 method utama </strong>dalam life cycle <code>StatefullWidget</code>:</p>
-<ul>
-<li><code>initState()</code>: dipanggil sekali ketika state dibangun. Bisa dikatakan ini juga sebagai konstruktor class.</li>
-<li><code>build()</code>: dipanggil setiap kali ada perubahan state atau UI. Method ini melakukan destroy UI dan membangun ulang dari nol.</li>
-<li><code>deactive()</code> dan <code>dispose()</code>: digunakan untuk menghapus widget dari tree, pada beberapa kasus dimanfaatkan untuk menutup koneksi ke database atau menyimpan data sebelum berpindah screen.</li>
-</ul>
-<p>Setelah Anda menyelesaikan praktikum 5, Anda dapat melanjutkan praktikum 6 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
-<aside class="warning"><p><strong>Perhatian:</strong> Diasumsikan Anda telah berhasil menyelesaikan Praktikum 5.</p>
-</aside>
-<h2 is-upgraded><strong>Langkah 1: install plugin geolocator</strong></h2>
-<p>Tambahkan plugin geolocator dengan mengetik perintah berikut di terminal.</p>
-<pre><code>flutter pub add geolocator</code></pre>
-<h2 is-upgraded><strong>Langkah 2: Tambah permission GPS</strong></h2>
-<p>Jika Anda menargetkan untuk platform <strong>Android</strong>, maka tambahkan baris kode berikut di file <code>android/app/src/main/androidmanifest.xml</code> </p>
-<pre><code>&lt;uses-permission android:name=&#34;android.permission.ACCESS_FINE_LOCATION&#34;/&gt;
-&lt;uses-permission android:name=&#34;android.permission.ACCESS_COARSE_LOCATION&#34;/&gt;</code></pre>
-<p>Jika Anda menargetkan untuk platform <strong>iOS</strong>, maka tambahkan kode ini ke file <code>Info.plist</code></p>
-<pre><code>&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
-&lt;string&gt;This app needs to access your location&lt;/string&gt;</code></pre>
-<h2 is-upgraded>Langkah 3: Buat file <strong><code>geolocation.dart</code></strong></h2>
-<p>Tambahkan file baru ini di folder lib project Anda.</p>
-<h2 is-upgraded><strong>Langkah 4: Buat StatefulWidget</strong></h2>
-<p>Buat <code>class LocationScreen</code> di dalam file <code>geolocation.dart</code></p>
-<h2 is-upgraded>Langkah 5: Isi kode <strong><code>geolocation.dart</code></strong></h2>
-<p class="image-container"><img style="width: 556.00px" src="img\\e9947082d70bbfbb.png"></p>
-<aside class="warning"><h3 is-upgraded><strong>Soal 11</strong></h3>
-<ul>
-<li>Tambahkan <strong>nama panggilan Anda</strong> pada tiap properti <code>title</code> sebagai identitas pekerjaan Anda.</li>
-</ul>
-</aside>
-<h2 is-upgraded><strong>Langkah 6: Edit main.dart</strong></h2>
-<p>Panggil screen baru tersebut di file main Anda seperti berikut.</p>
-<pre><code>home: LocationScreen(),</code></pre>
-<h2 is-upgraded><strong>Langkah 7: Run</strong></h2>
-<p>Run project Anda di <strong>device </strong>atau <strong>emulator </strong>(<strong>bukan browser</strong>), maka akan tampil seperti berikut ini.</p>
-<p class="image-container"><img style="width: 292.00px" src="img\\769ef7d3863f2f35.png"></p>
-<h2 is-upgraded><strong>Langkah 8: Tambahkan animasi loading</strong></h2>
-<p>Tambahkan widget loading seperti kode berikut. Lalu hot restart, perhatikan perubahannya.</p>
-<p class="image-container"><img style="width: 378.00px" src="img\\e528461199688c99.png"></p>
-<aside class="warning"><h3 is-upgraded><strong>Soal 12</strong></h3>
-<ul>
-<li>Jika Anda tidak melihat animasi loading tampil, kemungkinan itu berjalan sangat cepat. Tambahkan delay pada method <code>getPosition()</code> dengan kode <code>await Future.delayed(const Duration(seconds: 3));</code></li>
-<li>Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?</li>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 12</strong>&#34;.</li>
-</ul>
-</aside>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Praktikum 7: Manajemen Future dengan FutureBuilder" duration="15">
-        <p>Pola ketika menerima beberapa data secara async dan melakukan update pada UI sebenarnya itu tergantung pada ketersediaan data. Secara umum fakta di Flutter, ada sebuah widget yang membantu Anda untuk memudahkan manajemen future yaitu widget <code>FutureBuilder</code>.</p>
-<p>Anda dapat menggunakan FutureBuilder untuk manajemen future bersamaan dengan update UI ketika ada update Future. FutureBuilder memiliki status future sendiri, sehingga Anda dapat mengabaikan penggunaan <code>setState</code>, Flutter akan membangun ulang bagian UI ketika update itu dibutuhkan.</p>
-<p>Untuk lebih memahami widget FutureBuilder, mari kita coba dengan praktikum ini.</p>
-<p>Setelah Anda menyelesaikan praktikum 6, Anda dapat melanjutkan praktikum 7 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
-<aside class="warning"><p><strong>Perhatian:</strong> Diasumsikan Anda telah berhasil menyelesaikan Praktikum 6.</p>
-</aside>
-<h2 is-upgraded>Langkah 1: Modifikasi method <strong><code>getPosition()</code></strong></h2>
-<p>Buka file <code>geolocation.dart</code> kemudian ganti isi method dengan kode ini.</p>
-<p class="image-container"><img style="width: 450.00px" src="img\\d219a26080007e5f.png"></p>
-<h2 is-upgraded><strong>Langkah 2: Tambah variabel</strong></h2>
-<p>Tambah variabel ini di <code>class _LocationScreenState</code></p>
-<p class="image-container"><img style="width: 215.00px" src="img\\2bd8bac7676f257c.png"></p>
-<h2 is-upgraded>Langkah 3: Tambah <strong><code>initState()</code></strong></h2>
-<p>Tambah method ini dan set variabel <code>position</code></p>
-<p class="image-container"><img style="width: 222.00px" src="img\\3214e62efe9a252b.png"></p>
-<h2 is-upgraded>Langkah 4: Edit method <strong><code>build()</code></strong></h2>
-<p>Ketik kode berikut dan sesuaikan. Kode lama bisa Anda comment atau hapus.</p>
-<p class="image-container"><img style="width: 458.00px" src="img\\85adce0916edeb8e.png"></p>
-<aside class="warning"><h3 is-upgraded>Soal 13</h3>
-<ul>
-<li>Apakah ada perbedaan UI dengan praktikum sebelumnya? Mengapa demikian?</li>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 13</strong>&#34;.</li>
-<li>Seperti yang Anda lihat, menggunakan FutureBuilder lebih efisien, clean, dan reactive dengan Future bersama UI.</li>
-</ul>
-</aside>
-<h2 is-upgraded><strong>Langkah 5: Tambah handling error</strong></h2>
-<p>Tambahkan kode berikut untuk menangani ketika terjadi error. Kemudian hot restart.</p>
-<pre><code>else if (snapshot.connectionState == ConnectionState.done) {
-  if (snapshot.hasError) {
-     return Text(&#39;Something terrible happened!&#39;);
-  }
-  return Text(snapshot.data.toString());
-}</code></pre>
-<aside class="warning"><h3 is-upgraded>Soal 14</h3>
-<ul>
-<li>Apakah ada perbedaan UI dengan langkah sebelumnya? Mengapa demikian?</li>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 14</strong>&#34;.</li>
-</ul>
-</aside>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Praktikum 8: Navigation route dengan Future Function" duration="15">
-        <p>Praktikum kali ini Anda akan melihat manfaat Future untuk Navigator dalam transformasi Route menjadi sebuah function async. Anda akan melakukan push screen baru dan fungsi await menunggu data untuk melakukan update warna background pada screen.</p>
-<p>Setelah Anda menyelesaikan praktikum 7, Anda dapat melanjutkan praktikum 8 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
-<aside class="warning"><p><strong>Perhatian:</strong> Diasumsikan Anda telah berhasil menyelesaikan Praktikum 7.</p>
-</aside>
-<h2 is-upgraded>Langkah 1: Buat file baru <strong><code>navigation_first.dart</code></strong></h2>
-<p>Buatlah file baru ini di project lib Anda.</p>
-<h2 is-upgraded>Langkah 2: Isi kode <strong><code>navigation_first.dart</code></strong></h2>
-<p class="image-container"><img style="width: 478.00px" src="img\\94d4517fe205d4c7.png"></p>
-<aside class="warning"><h3 is-upgraded><strong>Soal 15</strong></h3>
-<ul>
-<li>Tambahkan <strong>nama panggilan Anda</strong> pada tiap properti <code>title</code> sebagai identitas pekerjaan Anda.</li>
-<li>Silakan ganti dengan warna tema favorit Anda.</li>
-</ul>
-</aside>
-<h2 is-upgraded>Langkah 3: Tambah method di <strong><code>class _NavigationFirstState</code></strong></h2>
-<p>Tambahkan method ini.</p>
-<pre><code>Future _navigateAndGetColor(BuildContext context) async {
-   color = await Navigator.push(context,
-        MaterialPageRoute(builder: (context) =&gt; const NavigationSecond()),) ?? Colors.blue;
-   setState(() {});
-   });
-}</code></pre>
-<h2 is-upgraded>Langkah 4: Buat file baru <strong><code>navigation_second.dart</code></strong></h2>
-<p>Buat file baru ini di project lib Anda. Silakan jika ingin mengelompokkan view menjadi satu folder dan sesuaikan impor yang dibutuhkan.</p>
-<h2 is-upgraded><strong>Langkah 5: Buat class NavigationSecond dengan StatefulWidget</strong></h2>
-<p class="image-container"><img style="width: 469.00px" src="img\\faf70be0b0b003fd.png"></p>
-<h2 is-upgraded>Langkah 6: Edit <strong><code>main.dart</code></strong></h2>
-<p>Lakukan edit properti home.</p>
-<pre><code>home: const NavigationFirst(),</code></pre>
-<h2 is-upgraded><strong>Langkah 8: Run</strong></h2>
-<p>Lakukan run, jika terjadi error silakan diperbaiki.</p>
-<aside class="warning"><h3 is-upgraded><strong>Soal 16</strong></h3>
-<ul>
-<li>Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?</li>
-<li>Gantilah 3 warna pada langkah 5 dengan warna favorit Anda!</li>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 16</strong>&#34;.</li>
-</ul>
-</aside>
-<p>Hasilnya akan seperti gambar berikut ini.</p>
-<p class="image-container"><img style="width: 322.00px" src="img\\b363de9b154b9314.png"> <img style="width: 338.00px" src="img\\e08980d087e7968d.png"></p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Praktikum 9: Memanfaatkan async/await dengan Widget Dialog" duration="15">
-        <p>Pada praktikum ini, Anda akan memanfaatkan widget <code>AlertDialog</code>. Anda bisa manfaatkan widget ini misal untuk memilih operasi Save, Delete, Accept, dan sebagainya.</p>
-<p>Setelah Anda menyelesaikan praktikum 8, Anda dapat melanjutkan praktikum 9 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.</p>
-<aside class="warning"><p><strong>Perhatian:</strong> Diasumsikan Anda telah berhasil menyelesaikan Praktikum 8.</p>
-</aside>
-<h2 is-upgraded>Langkah 1: Buat file baru <strong><code>navigation_dialog.dart</code></strong></h2>
-<p>Buat file dart baru di folder lib project Anda.</p>
-<h2 is-upgraded>Langkah 2: Isi kode <strong><code>navigation_dialog.dart</code></strong></h2>
-<p class="image-container"><img style="width: 430.00px" src="img\\f8aa82ec1f684ef7.png"></p>
-<h2 is-upgraded><strong>Langkah 3: Tambah method async</strong></h2>
-<p class="image-container"><img style="width: 344.00px" src="img\\a3094d0b4e110748.png"></p>
-<h2 is-upgraded>Langkah 4: Panggil method di <strong><code>ElevatedButton</code></strong></h2>
-<p class="image-container"><img style="width: 222.00px" src="img\\ddafc9ca6d33033b.png"></p>
-<h2 is-upgraded>Langkah 5: Edit <strong><code>main.dart</code></strong></h2>
-<p>Ubah properti home </p>
-<p class="image-container"><img style="width: 235.00px" src="img\\c121e1408898fb65.png"></p>
-<h2 is-upgraded><strong>Langkah 6: Run</strong></h2>
-<p>Coba ganti warna background dengan widget dialog tersebut. Jika terjadi error, silakan diperbaiki. Jika berhasil, akan tampil seperti gambar berikut.</p>
-<p class="image-container"><img style="width: 199.00px" src="img\\9d5e185f3478976f.png"></p>
-<aside class="warning"><h3 is-upgraded><strong>Soal 17</strong></h3>
-<ul>
-<li>Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?</li>
-<li>Gantilah 3 warna pada langkah 3 dengan warna favorit Anda!</li>
-<li>Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan &#34;<strong>W12: Soal 17</strong>&#34;.</li>
-</ul>
-</aside>
+      <google-codelab-step label="Tugas Praktikum" duration="90">
+        <p>Jawablah soal-soal berikut ini di Laporan Praktikum Anda.</p>
+<ol type="1" start="1">
+<li>Apa saja perbedaan fitur atau query antara T-SQL dan PostgreSQL ? Jelaskan dalam bentuk tabel dan sebutkan dengan referensi yang mendukung!</li>
+<li>Berdasarkan soal nomor 1, buktikan dengan eksekusi query menggunakan psql tool atau pgAdmin. Capture query dan hasilnya di Laporan Praktikum Anda!</li>
+</ol>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Selamat!" duration="0">
-        <p>Selamat Anda telah menyelesaikan Codelab ini. Anda telah mempelajari terkait pemrograman async dan contoh penggunaannya.</p>
-<p>Pada codelab berikutnya, Anda akan mempelajari tentang Pemrograman <em>Asynchronous </em>lanjutan dengan <em>streams </em>dan<em> state BLoC</em>.</p>
-<p>Jangan sungkan jika Anda menemukan kesalahan pada codelab ini untuk merevisi atau sekedar melaporkan issue melalui tautan di pojok kiri bawah (<a href="https://github.com/jti-polinema/flutter-codelab/issues" target="_blank">Report a mistake</a>).</p>
+        <p>Selamat Anda telah menyelesaikan Codelab ini. Anda telah mempelajari terkait instalasi PostgreSQL, melakukan koneksi, dan melakukan query sederhana.</p>
+<p>Pada praktikum berikutnya, Anda akan mempelajari tentang MongoDB.</p>
+<p>Jangan sungkan jika Anda menemukan kesalahan pada codelab ini untuk merevisi atau sekedar melaporkan issue melalui tautan di pojok kiri bawah (<a href="https://github.com/jti-polinema/BDL/issues" target="_blank">Report a mistake</a>).</p>
 <h2 is-upgraded><strong>Apa selanjutnya?</strong></h2>
-<p>Silakan cek beberapa sumber belajar lainnya...</p>
+<p>Silakan cek beberapa sumber belajar lainnya.</p>
 <ul>
-<li><a href="https://dart.dev/codelabs/async-await" target="_blank">https://dart.dev/codelabs/async-await</a> </li>
-<li><a href="https://api.flutter.dev/flutter/dart-async/Completer-class.html" target="_blank">https://api.flutter.dev/flutter/dart-async/Completer-class.html</a> </li>
-<li><a href="https://www.youtube.com/watch?v=AJQuw-fnooA" target="_blank">Video tentang Async, Await, Future (Bahasa Indonesia)</a></li>
-<li><a href="https://dart.dev/guides/libraries/futures-error-handling" target="_blank">https://dart.dev/guides/libraries/futures-error-handling</a> </li>
-<li><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html" target="_blank">https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html</a> </li>
-<li><a href="https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html" target="_blank">https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html</a> </li>
-<li><a href="https://api.flutter.dev/flutter/material/AlertDialog-class.html" target="_blank">https://api.flutter.dev/flutter/material/AlertDialog-class.html</a> </li>
+<li><a href="https://www.postgresqltutorial.com/postgresql-php/connect/" target="_blank">Cara konek ke PostgreSQL dengan PHP</a></li>
+<li><a href="https://www.postgresqltutorial.com/postgresql-python/connect/" target="_blank">Cara konek ke PostgreSQL dengan Python</a></li>
+<li><a href="https://www.postgresqltutorial.com/postgresql-jdbc/connecting-to-postgresql-database/" target="_blank">Cara konek ke PostgreSQL dengan Java</a></li>
 </ul>
 <h2 is-upgraded><strong>Referensi</strong></h2>
 <ul>
-<li><a href="https://drive.google.com/file/d/1W9uSLC9wlf9fFudmCWFHTx9dan5SXII0/view?usp=sharing" target="_blank">Buku &#34;Flutter Cookbook, 100+ step-by-step recipes for building cross-platform, professional grade apps with Flutter 3.10.x and Dart 3.x - Second Edition&#34; oleh Simone Alessandria (2023)</a></li>
-<li><a href="https://drive.google.com/file/d/1hJbctx-_O3B6kUeG70bJD5xfbnsWwBXY/view?usp=sharing" target="_blank">Flutter for Beginners Second Edition</a></li>
-<li><a href="https://www.youtube.com/flutterdev" target="_blank">https://www.youtube.com/flutterdev</a> </li>
-<li><a href="https://github.com/PacktPublishing/Flutter-for-Beginners-Second-Edition" target="_blank">https://github.com/PacktPublishing/Flutter-for-Beginners-Second-Edition</a></li>
+<li><a href="https://www.postgresqltutorial.com/" target="_blank">https://www.postgresqltutorial.com/</a> </li>
 </ul>
 
 
